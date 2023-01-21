@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
+*
+{
+  font-size: 40px;
+  font-family: Comic Sans MS;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-image: url('/image/map.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav
+{
+  background-color: rgb(104, 76, 42);
+  
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.nav a{
+  text-decoration: none;
+  margin:5%;
+  color: whitesmoke;
+}
+h1{
+  color: whitesmoke;
+  font-weight: bolder;
+}
+table{
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
