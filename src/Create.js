@@ -24,6 +24,7 @@ function Create() {
 
     const [name, setName] = useState("");
     const [destination, setDestination] = useState("");
+
     const nav = useNavigate();
 
     const hName = (event) => { setName(event.target.value); }
@@ -31,25 +32,32 @@ function Create() {
 
     const save = (event) => {
         event.preventDefault();
-        let r1 = ref(db);
-        get(child(r1, "user/" + name))
-            .then((ss) => {
-                if (ss.exists()) {
-                    alert(name + " already exists!")
-                    setName("");
-                    setDestination("");
-                }
-                else {
-                    let r2 = ref(db, "/user/" + name)
-                    let data = { name, destination };
-                    set(r2, data);
-                    alert("Record Created!")
-                    setName("");
-                    setDestination("");
-                }
-            })
-            .catch(err => console.log(err))
+        if ((destination.length < 5) || (name.length < 5)) {
+            alert("Destination or name must be at least 5 characters!");
+        }
+        else {
 
+
+            let r1 = ref(db);
+            get(child(r1, "user/" + name))
+                .then((ss) => {
+                    if (ss.exists()) {
+                        alert(name + " already exists!")
+                        setName("");
+                        setDestination("");
+                    }
+                    else {
+                        let r2 = ref(db, "/user/" + name)
+                        let data = { name, destination };
+                        set(r2, data);
+                        alert("Record Created!")
+                        setName("");
+                        setDestination("");
+                    }
+                })
+                .catch(err => console.log(err))
+
+        }
     }
     const logout = (event) => {
         event.preventDefault();
@@ -62,6 +70,7 @@ function Create() {
         event.preventDefault();
         nav("/display")
     }
+
     return (
         <>
             <center>
@@ -70,9 +79,9 @@ function Create() {
 
                 <form onSubmit={save}>
 
-                    <input type="text" placeholder="Enter your name" onChange={hName} value={name} />
+                    <input type="text" placeholder="Enter your name" onChange={hName} value={name} required />
                     <br /><br />
-                    <input type="text" placeholder="Destination to visit" onChange={hDestination} value={destination} />
+                    <input type="text" placeholder="Destination to visit" onChange={hDestination} value={destination} required />
                     <br /><br />
                     <input type="submit" />
                     <br /><br />

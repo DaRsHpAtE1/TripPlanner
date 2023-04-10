@@ -8,6 +8,21 @@ function SignUp() {
     const [email, setEmail] = useState("");
     const [pw, setPw] = useState("");
     const [conf, setConf] = useState("");
+    const validate = (email, pw) => {
+        if (email === "") {
+            alert("Please enter your email!");
+        }
+        else if (pw < 5) {
+            alert("Password must be at least 5 characters!");
+        }
+        else if (pw !== conf) {
+            alert("Passwords do not match!");
+        }
+        else {
+            return true;
+        }
+    }
+
 
     const hEmail = (event) => { setEmail(event.target.value); }
     const hPw = (event) => { setPw(event.target.value); }
@@ -15,7 +30,7 @@ function SignUp() {
 
     const save = (event) => {
         event.preventDefault();
-        if (pw == conf) {
+        if (pw === conf) {
             const auth = getAuth();
             createUserWithEmailAndPassword(auth, email, pw)
                 .then(res => nav("/login"))
@@ -31,11 +46,11 @@ function SignUp() {
 
                 <h1>Sign Up Today!</h1>
                 <form onSubmit={save}>
-                    <input type="email" placeholder="Enter your email" onChange={hEmail} />
+                    <input type="email" placeholder="Enter your email" onChange={hEmail} required />
                     <br /><br />
-                    <input type="password" placeholder="Create a password" onChange={hPw} />
+                    <input type="password" placeholder="Create a password" onChange={hPw} required />
                     <br /><br />
-                    <input type="password" placeholder="Confirm your password" onChange={hConf} />
+                    <input type="password" placeholder="Confirm your password" onChange={hConf} required />
                     <br /><br />
                     <input type="submit" value="Create your account!" />
                 </form>

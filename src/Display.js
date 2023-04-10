@@ -2,6 +2,7 @@ import db from "./FirebaseConfig"
 import { get, ref, child, remove } from "firebase/database";
 import { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Display() {
     const [info, setInfo] = useState([]);
@@ -40,6 +41,26 @@ function Display() {
             })
             .catch(err => console.log(err));
     }, []);
+    const Delete = (name) => {
+        let r = ref(db);
+        get(child(r, "user/"))
+            .then((ss) => {
+                if (ss.exists()) {
+                    let data = ss.val();
+                    Object.values(data).map((d) => {
+                        if (d.name === name) {
+                            remove(child(r, "user/" + d.name))
+                                .then(() => {
+                                    alert("Deleted Successfully");
+                                    window.location.reload();
+                                })
+                                .catch(err => console.log(err));
+                        }
+                    });
+                }
+            });
+    };
+    const nav = useNavigate();
 
     return (
         <>
@@ -58,11 +79,15 @@ function Display() {
 
                                 <td>{e.name}</td>
                                 <td>{e.destination}</td>
+                                <td><button onClick={() => Delete(e.name)}>Delete</button></td>
 
                             </tr>
                             ))
                         }
                     </table>
+                    <br /><br />
+                    <button onClick={() => nav(-1)}>Back</button>
+
                 </center>
             </center>
         </>
