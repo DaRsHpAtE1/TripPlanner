@@ -1,27 +1,38 @@
-*
-{
-  font-size: 40px;
-  font-family: Comic Sans MS;
+*{
+  font-size: 30px;
+  font-family: Helvetica;
+  background-color: #181818;
+  color:aliceblue;
 }
-body{
-  background-image: url('/image/map.jpg');
-  background-repeat:no-repeat;
-  background-size: cover;
+button, button:focus,input[name=s] {
+  font-size: 17px;
+  padding: 10px 25px;
+  border-radius: 0.7rem;
+  background-image: linear-gradient(rgb(214, 202, 254), rgb(107, 80, 195));
+  border: 2px solid rgb(50, 50, 50);
+  border-bottom: 5px solid rgb(50, 50, 50);
+  box-shadow: 0px 1px 6px 0px rgb(119, 94, 198);
+  transform: translate(0, -3px);
+  transition: 0.2s;
+  transition-timing-function: linear;
 }
-.nav
-{
-  background-color: rgb(104, 76, 42);
-  
+
+button:active {
+  transform: translate(0, 0);
+  border-bottom: 2px solid rgb(50, 50, 50);
 }
+
 .nav a{
   text-decoration: none;
   margin:5%;
   color: whitesmoke;
 }
+.nav a:hover{
+  color: #8707ff;
+}
+.nav{
+  background-color: #181820;
+}
 h1{
-  color: whitesmoke;
-  font-weight: bolder;
-}
-table{
-  color: white;
-}
+  font-weight: 800;
+  font-size: 50px;}

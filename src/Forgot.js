@@ -4,7 +4,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Forgot() {
     const nav = useNavigate();
     const [email, setEmail] = useState("");
     const [pw, setPw] = useState("");
@@ -23,7 +23,7 @@ function Login() {
         <>
             <center>
                 <br /><br />
-                <h1>Login Page</h1>
+                <h1>Reset Your-Password</h1>
                 <form onSubmit={check}>
                     <input type="email" placeholder="Enter your email" onChange={hEmail} />
                     <br /><br />
@@ -32,9 +32,9 @@ function Login() {
                     <input type="submit" value="Login" name="s" />
                 </form>
                 <br />
-                <Link to='/Forgot' name='f'>Forgot Password?</Link>
+                <button onClick={() => nav(-1)}>Back</button>
             </center>
         </>
     );
 }
-export default Login;
+export default Forgot;

@@ -6,6 +6,7 @@ import './App.css';
 import Navbar from './Navbar';
 import Create from './Create';
 import Display from './Display';
+import Forgot from './Forgot';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<SignUp />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/forgot" element={<Forgot />}></Route>
           <Route path="/create" element={<Create />}></Route>
           <Route path="/display" element={<Display />}></Route>
 

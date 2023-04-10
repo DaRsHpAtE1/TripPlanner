@@ -43,7 +43,7 @@ function SignUp() {
     return (
         <>
             <center>
-
+                <br /><br />
                 <h1>Sign Up Today!</h1>
                 <form onSubmit={save}>
                     <input type="email" placeholder="Enter your email" onChange={hEmail} required />
@@ -52,7 +52,7 @@ function SignUp() {
                     <br /><br />
                     <input type="password" placeholder="Confirm your password" onChange={hConf} required />
                     <br /><br />
-                    <input type="submit" value="Create your account!" />
+                    <input type="submit" value='Create' name="s" />
                 </form>
             </center>
 

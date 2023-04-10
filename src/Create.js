@@ -83,14 +83,14 @@ function Create() {
                     <br /><br />
                     <input type="text" placeholder="Destination to visit" onChange={hDestination} value={destination} required />
                     <br /><br />
-                    <input type="submit" />
+                    <input type="submit" name="s" />
                     <br /><br />
                 </form>
                 <form onSubmit={logout}>
-                    <input type="submit" value="Logout" />
+                    <input type="submit" value="Logout" name='s' />
                 </form> <br />
                 <form onSubmit={display}>
-                    <input type="submit" value="Display" />
+                    <input type="submit" value="Display" name="s" />
                 </form> <br />
             </center>
         </>
